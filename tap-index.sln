@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "tap-index", "tap-index\tap-index.njsproj", "{663B8946-45BB-450B-8277-9A09900022FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{663B8946-45BB-450B-8277-9A09900022FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663B8946-45BB-450B-8277-9A09900022FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663B8946-45BB-450B-8277-9A09900022FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663B8946-45BB-450B-8277-9A09900022FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C738B4A-D29B-4204-8169-407BC3C05EFD}
+	EndGlobalSection
+EndGlobal
