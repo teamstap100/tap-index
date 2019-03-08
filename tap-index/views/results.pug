@@ -1,0 +1,85 @@
+﻿extends layout
+
+block morescripts
+    link(rel='stylesheet', type="text/css", href='/public/stylesheets/simple-sidebar.css')
+    script(type="text/javascript", src="/controllers/resultsController.client.js")
+
+block sidebar
+  .tab-wrapper
+        .tab
+            each area in areas
+                button.tablinks(id="toggle-" + area._id) #{area.name}
+            button.tablinks#toggle-all #[strong View All Features]
+block non-sidebar-content
+  .logo-header
+     img(src="/public/images/teams.png", display="inline-block")
+     h1 Microsoft Teams TAP100 Feature Feedback - Results
+     br
+     br
+     br
+  if areas
+    .tabpanel
+        //.row
+        - console.log(areaVoteTotal);
+        - var areaCounter = 0;
+            each area in areas
+            
+                //if areaCounter == 2
+                //    .row
+                //    - areaCounter = 0;
+                //- areaCounter += 1;
+
+                //.col-md-6
+                .tabcontent(id=area._id)
+                    - var totalRating;
+                    if isNaN(areaVoteTotal[area._id])
+                        - totalRating = ""
+                    else
+                        - totalRating = "- " + areaVoteTotal[area._id].toFixed(1) + " (" + areaVoteCount[area._id] + ")"
+                    //.tabcontent
+                    h3.centered #[strong #{area.name}] #{totalRating}
+
+                    table.table.table-bordered.table-striped
+                        thead
+                            tr
+                                td #[strong Customer]
+                                td #[strong Rating]
+                        tbody
+                            each customer in customers
+                                if customer.test != true
+                                    tr
+                                        td 
+                                          span.logo
+                                            if customer.logo
+                                                img(src="/public/images/" + customer.logo, display="inline-block", title=customer.name)
+                                            else
+                                                img(src="/public/images/teams.png", display="inline-block", title=customer.name)
+                                            p (#{customer.industry})
+                                        - var votes = areaVotes[area._id.toString()][customer._id];
+                                        - var count = votes[1] + votes[2] + votes[3] + votes[4] + votes[5];
+                                        - var comments = areaComments[area._id.toString()][customer._id];
+                                        td 
+                                            if isNaN(votes[0])
+                                                p #[strong -]
+                                            else
+                                                -console.log(votes);
+                                                p #[strong #{votes[0].toFixed(1)}] (#{count})   
+                                                if comments.length > 0
+                                                    i.fa.fa-comments(data-toggle="modal", data-target="#comment-modal-" + area._id + "-" + customer._id, title="See comments...")
+                                                        span.badge #{comments.length}
+
+                                                    .modal.fade(tabindex='-1', role='dialog', id="comment-modal-" + area._id + "-" + customer._id, style="margin: auto; width: 50%")
+                                                        .modal-dialog(role='document')
+                                                            .modal-content
+                                                                .modal-header
+                                                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                        span(aria-hidden='true') ×
+                                                                    h4.modal-title #{customer.name}'s comments on #{area.name}:
+                                                                .modal-body
+                                                                    ul
+                                                                        each comment in comments
+                                                                            li #[em "#{comment.value}"] - #{comment.user}
+                                                            
+                                                                .modal-footer
+                                                                    button.btn.btn-primary(type='button', data-dismiss='modal') Close
+                                    

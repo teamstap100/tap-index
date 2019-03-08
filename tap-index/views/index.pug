@@ -1,5 +1,96 @@
 ﻿extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .modal.fade#badTenantModal(tabindex='-1', role='dialog')
+    .modal-dialog(role='document')
+    .modal-content
+        .modal-header
+        h4.modal-title Tenant not whitelisted
+        .modal-body
+            p Your tenant is not approved to use this application. You will not be able to use this app to submit feedback.
+
+  .alert.alert-success.collapse#success(role="alert")
+    p Your responses have been submitted!
+
+
+  .col-sm-10
+      .poll-logo-header
+        img(src="/public/images/teams.png", display="inline-block")
+        h1 Microsoft Teams TAP100 Feature Feedback
+      br
+      br
+      br
+      p Please rate how you feel about the following pre-release Teams features:
+      if areas
+        table.table.table-bordered.table-striped
+            thead
+                tr
+                    td #[strong Date]
+                    td #[strong Feature (under NDA with Microsoft)]
+                    td #[strong Rating]
+                    td #[strong Comment (optional)]
+
+            tbody
+                each area in areas
+                    tr
+                        - var datestring = (area.date.getMonth()+1) + '/' + area.date.getDate() + '/' +  area.date.getFullYear();
+                        td #{datestring}
+                        td #{area.name} 
+                          i.fa.fa-lightbulb(data-toggle="modal", data-target="#description-modal-" + area._id, title="More info...")
+                          //button.btn.btn-downvote.btn-danger(type="submit", data-toggle="modal", data-target="#description-modal-" + area._id) More Info
+                        td.fixed-width
+                            form(id=area._id + "-stars")
+                              span.rating
+                                  label
+                                    input.star(type='radio', name='stars', value='1', id=area._id + "-stars-1")
+                                    span.icon ★
+                                  label
+                                    input.star(type='radio', name='stars', value='2', id=area._id + "-stars-2")
+                                    span.icon ★
+                                    span.icon ★
+                                  label
+                                    input.star(type='radio', name='stars', value='3', id=area._id + "-stars-3")
+                                    span.icon ★
+                                    span.icon ★
+                                    span.icon ★
+                                  label
+                                    input.star(type='radio', name='stars', value='4', id=area._id + "-stars-4")
+                                    span.icon ★
+                                    span.icon ★
+                                    span.icon ★
+                                    span.icon ★
+                                  label
+                                    input.star(type='radio', name='stars', value='5', id=area._id + "-stars-5")
+                                    span.icon ★
+                                    span.icon ★
+                                    span.icon ★
+                                    span.icon ★
+                                    span.icon ★
+                              label.na N/A: 
+                                input(type='radio', name='stars', value='N/A', checked="checked")
+                        td 
+                            form(id=area._id + "-comment")
+                                input.comment(type='text', name='text', maxlength=140, placeholder="Optional comment", id=area._id + "-comment-field")
+        .text-right
+            button.btn.btn-primary#submit Submit
+
+      each area in areas
+        .modal.fade(tabindex='-1', role='dialog', id="description-modal-" + area._id)
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+                h4.modal-title #{area.name}
+              .modal-body
+                if area.description
+                    p !{area.description}
+                else
+                    p No description yet.
+              .modal-footer
+                button.btn.btn-primary(type='button', data-dismiss='modal') Close
+
+
+
+block morescripts
+    script(type="text/javascript", src="/controllers/voteController.client.js")

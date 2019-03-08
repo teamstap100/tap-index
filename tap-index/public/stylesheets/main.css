@@ -1,8 +1,173 @@
 ﻿body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    background-color: #F2F2F2;
 }
 
 a {
     color: #00B7FF;
+}
+
+.centered {
+    text-align: center;
+}
+
+/*
+table {
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid #d4d4d4;
+    font-size: 20px;
+    background: #fff;
+}
+
+table th,
+    table tr:nth-child(2n+2) {
+        background: #e7e7e7;
+    }
+
+table th,
+    table td {
+        padding: 20px 50px;
+    }
+
+table th {
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+    */
+
+label.na {
+    display: inline-block;
+    position: relative;
+    height: 25px;
+    line-height: 38px;
+    margin-bottom: 0px;
+    float: right;
+}
+
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 25px;
+    font-size: 25px;
+}
+
+    .rating label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        cursor: pointer;
+    }
+
+        .rating label:last-child {
+            position: static;
+        }
+
+        .rating label:nth-child(1) {
+            z-index: 5;
+        }
+
+        .rating label:nth-child(2) {
+            z-index: 4;
+        }
+
+        .rating label:nth-child(3) {
+            z-index: 3;
+        }
+
+        .rating label:nth-child(4) {
+            z-index: 2;
+        }
+
+        .rating label:nth-child(5) {
+            z-index: 1;
+        }
+
+        .rating label input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .rating label .icon {
+            float: left;
+            color: transparent;
+        }
+
+        .rating label:last-child .icon {
+            color: #bbb;
+        }
+
+    .rating:not(:hover) label input:checked ~ .icon,
+    .rating:hover label:hover input ~ .icon {
+        color: #5356aa;
+    }
+
+    .rating label input:focus:not(:checked) ~ .icon:last-child {
+        color: #000;
+        text-shadow: 0 0 5px #f2b01e;
+    }
+
+.fixed-width {
+    min-width: 200px;
+}
+
+.comment {
+    min-width: 200px;
+    width: 100%;
+}
+
+.fa-lightbulb {
+    cursor: pointer;
+}
+
+.fa-comments {
+    cursor: pointer;
+}
+
+.poll-logo-header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: #555;
+}
+
+.poll-logo-header h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+}
+
+.logo-header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: #555;
+    margin: 20px 0px 20px 20px;
+}
+
+.logo-header h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+    float: left;
+}
+
+span.logo img {
+    float: left;
+    display: block;
+    max-height: 48px;
+    max-width: 128px;
+    width: auto;
+    height: auto;
+}
+
+span.logo p {
+    position: relative;
+    top: 18px;
+    left: 10px;
 }

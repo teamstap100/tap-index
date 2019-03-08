@@ -1,0 +1,12 @@
+﻿extends layout.pug
+
+block morescripts
+  script(src='https://unpkg.com/@microsoft/teams-js@1.3.7/dist/MicrosoftTeams.min.js', integrity='sha384-glExfvkpce98dO2oN+diZ/Luv/5qrZJiOvWCeR8ng/ZxlhpvBgHKeVFRURrh+NEC', crossorigin='anonymous')
+  script(type="text/javascript", src="/controllers/configController.client.js")
+
+
+block content
+  .container
+    br
+    p.clementine-text Obligatory Config Page
+    p Nothing to configure here, just click "save".

@@ -5,7 +5,12 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>tap-index</Name>
     <RootNamespace>tap-index</RootNamespace>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <Environment>MONGO_STRING=mongodb+srv://node-user:QbRAiry8ZuT8RKHB@tap-validation-tab-e1ixx.azure.mongodb.net/tap-index?retryWrites=true
+
+mongodb+srv://node-user:QbRAiry8ZuT8RKHB@tap-validation-tab-e1ixx.azure.mongodb.net/tap-index?retryWrites=true</Environment>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <NameOfLastUsedPublishProfile>tap-index - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -21,7 +26,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <NodejsPort>1337</NodejsPort>
-    <StartWebBrowser>true</StartWebBrowser>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,21 +36,100 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="routes\index.js" />
-    <Compile Include="routes\users.js" />
+    <Compile Include="app\controllers\configController.client.js" />
+    <Compile Include="app\controllers\resultsController.client.js" />
+    <Compile Include="app\controllers\voteController.client.js" />
+    <Compile Include="app\controllers\voteHandler.server.js" />
+    <Compile Include="app\routes\index.js" />
+    <Compile Include="app\routes\users.js" />
     <Content Include="package.json" />
+    <Content Include="public\images\accenture.jpg" />
+    <Content Include="public\images\Aimco_Logo.png" />
+    <Content Include="public\images\Air_New_Zealand_logo.svg.png" />
+    <Content Include="public\images\Alaska.png" />
+    <Content Include="public\images\Applied_Materials_Inc._Logo.svg.png" />
+    <Content Include="public\images\avanade.jpg" />
+    <Content Include="public\images\Axel_Springer.svg.png" />
+    <Content Include="public\images\BearingPoint_201x_logo.svg.png" />
+    <Content Include="public\images\Blackbaud_logo.png" />
+    <Content Include="public\images\boston.png" />
+    <Content Include="public\images\Brunswick_Corporation.png" />
+    <Content Include="public\images\cerner.jpg" />
+    <Content Include="public\images\Chevron_Logo.svg.png" />
+    <Content Include="public\images\coles.jpg" />
+    <Content Include="public\images\CommScope_logo.svg.png" />
+    <Content Include="public\images\Communicativ.png" />
+    <Content Include="public\images\conocophillips-icon.jpg" />
+    <Content Include="public\images\ConocoPhillips.png" />
+    <Content Include="public\images\Deloitte.svg.png" />
+    <Content Include="public\images\dematic.jpg" />
+    <Content Include="public\images\Dentsu Aegis.jpg" />
+    <Content Include="public\images\dm.png" />
+    <Content Include="public\images\ecolab.jpg" />
+    <Content Include="public\images\Fico.png" />
+    <Content Include="public\images\greygroup.png" />
+    <Content Include="public\images\GSK_logo_svg.svg.png" />
+    <Content Include="public\images\HK.png" />
+    <Content Include="public\images\ion trading.png" />
+    <Content Include="public\images\jwt-icon.png" />
+    <Content Include="public\images\JWT.jpg" />
+    <Content Include="public\images\JWT_cropped.jpg" />
+    <Content Include="public\images\Kaiser permanente.png" />
+    <Content Include="public\images\Koch_logo.svg.png" />
+    <Content Include="public\images\lakeside.jpg" />
+    <Content Include="public\images\Lifetouch_Logo_2013.png" />
+    <Content Include="public\images\Lowes.png" />
+    <Content Include="public\images\Macys.svg.png" />
+    <Content Include="public\images\mckinsey.jpg" />
+    <Content Include="public\images\Modality.jpg" />
+    <Content Include="public\images\mutual_of_omaha.jpg" />
+    <Content Include="public\images\Nestlé.svg.png" />
+    <Content Include="public\images\New Signature.png" />
+    <Content Include="public\images\Norsk_Hydro.svg.png" />
+    <Content Include="public\images\Office_Depot_Inc._Stacked.jpg" />
+    <Content Include="public\images\ogilvy.png" />
+    <Content Include="public\images\Osram.jpg" />
+    <Content Include="public\images\publicis.jpg" />
+    <Content Include="public\images\putnam.jpg" />
+    <Content Include="public\images\Queensland_Ambulance_Service_logo.svg.png" />
+    <Content Include="public\images\robert half.jpg" />
+    <Content Include="public\images\Sage_logo.svg.png" />
+    <Content Include="public\images\SCE.png" />
+    <Content Include="public\images\Signet_Jewelers_logo.png" />
+    <Content Include="public\images\SiriusIQ Mobile.PNG" />
+    <Content Include="public\images\Skype_Teams_Logo_Blurple.png" />
+    <Content Include="public\images\Skype_Teams_Logo_White.png" />
+    <Content Include="public\images\sprint.png" />
+    <Content Include="public\images\staples.jpg" />
+    <Content Include="public\images\Staples.png" />
+    <Content Include="public\images\sungard.jpg" />
+    <Content Include="public\images\teams.png" />
+    <Content Include="public\images\Technicolor_logo.svg.png" />
+    <Content Include="public\images\Tesla_Motors.svg.png" />
+    <Content Include="public\images\tom tom.jpg" />
+    <Content Include="public\images\trek.jpg" />
+    <Content Include="public\images\UCB.jpg" />
+    <Content Include="public\images\WGU.jpg" />
+    <Content Include="public\images\Wipro_Logo_1.png" />
+    <Content Include="public\images\WPP.png" />
+    <Content Include="public\stylesheets\simple-sidebar.css" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <None Include="tap-index - Web Deploy.pubxml" />
+    <Content Include="views\config.pug" />
+    <Content Include="views\results.pug" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\controllers\" />
+    <Folder Include="app\routes\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
     <Folder Include="public\stylesheets\" />
-    <Folder Include="routes\" />
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
